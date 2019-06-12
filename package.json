@@ -1,0 +1,36 @@
+{
+  "name": "hire.me",
+  "version": "1.0.0",
+  "description": "Um pequeno projeto para testar suas habilidades como programador.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha src/tests/*.js",
+    "test:watch": "mocha -w src/tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FernandoFreireDev/hire.me.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FernandoFreireDev/hire.me/issues"
+  },
+  "homepage": "https://github.com/FernandoFreireDev/hire.me#readme",
+  "dependencies": {
+    "boom": "^7.3.0",
+    "dotenv": "^8.0.0",
+    "hapi": "^18.1.0",
+    "hapi-swagger": "^10.0.2",
+    "inert": "^5.1.3",
+    "joi": "^14.3.1",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.3",
+    "randomstring": "^1.1.5",
+    "sequelize": "^5.8.7",
+    "vision": "^5.4.4"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  }
+}

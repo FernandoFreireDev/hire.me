@@ -1,0 +1,17 @@
+## POSTGRES
+
+docker run \
+    --name postgres \
+    -e POSTGRES_USER=fernandofreire \
+    -e POSTGRES_PASSWORD=system \
+    -e POSTGRES_DB=shortener \
+    -p 5432:5432 \
+    -d \
+    postgres
+
+docker run \
+    --name adminer \
+    -p 8080:8080 \
+    --link postgres:postgres \
+    -d \
+    adminer
