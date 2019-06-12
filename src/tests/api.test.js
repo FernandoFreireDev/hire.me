@@ -1,11 +1,8 @@
 const assert = require('assert')
 const api = require('./../api')
 const Randomstring = require('randomstring')
-const Postgres = require('../db/strategies/postgres/postgres')
-const Context = require('../db/strategies/base/contextStrategy')
 
 let app = {}
-const context = new Context(new Postgres())
 
 const SHORTENER_CREATE_WITHOUT_ALIAS = {
     url_original: 'https://www.bemobi.com.br'
@@ -13,7 +10,7 @@ const SHORTENER_CREATE_WITHOUT_ALIAS = {
 
 const SHORTENER_CREATE_ERROR_WITH_ALIAS = {
     alias: 'Bemobi',
-    url_original: 'https://www.bemobi.com.br'
+    url_original: 'www.bemobi.com.br'
 }
 
 const ALEATORY_ALIAS = Randomstring.generate({
@@ -30,8 +27,6 @@ describe('Test Suite - API', function(){
     this.timeout(Infinity)
     this.beforeAll(async () => {
         app = await api
-        await context.connect()
-        await context.create(SHORTENER_CREATE_ERROR_WITH_ALIAS)
     })
 
     it('Create - creating successfully without alias - /shorten', async () => {

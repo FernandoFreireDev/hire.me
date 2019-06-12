@@ -52,15 +52,14 @@ class Postgres extends ICrud {
 
     async connect()
     {
-        this._driver = new Sequelize(
-            process.env.DB_NAME,
-            process.env.DB_USER,
-            process.env.DB_PASSWORD,
-            {
-                host: process.env.DB_IP,
-                dialect: 'postgres',
+        this._driver = new Sequelize(`${process.env.POSTGRES_URL}`, {
                 quoteIdentifiers: false,
-                operatorAliases: false
+                operatorsAliases: false,
+                logging: false,
+                ssl: process.env.SSL_DB,
+                dialectOptions: {
+                    ssl: process.env.SSL_DB
+                }
             }
         )
         await this.defineModel()

@@ -1,11 +1,18 @@
 const assert = require('assert')
 const Postgres = require('../db/strategies/postgres/postgres')
 const Context = require('../db/strategies/base/contextStrategy')
+const Randomstring = require('randomstring')
 
 const context = new Context(new Postgres())
+
+const ALEATORY_ALIAS = Randomstring.generate({
+    length: 6,
+    charset: 'alphabetic'
+})
+
 const MOCK_SHORTENER_CREATE = {
-    alias: 'Bemobi',
-    url_original: 'https://www.bemobi.com.br'
+    alias: ALEATORY_ALIAS,
+    url_original: `https://www.${ALEATORY_ALIAS}.com.br`
 }
 
 describe('Test Suite - Postgres Strategy', function() {

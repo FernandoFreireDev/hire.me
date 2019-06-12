@@ -6,3 +6,5 @@ CREATE TABLE tb_urls (
     url_original TEXT NOT NULL,
     accesses integer NOT NULL DEFAULT 0
 );
+
+INSERT INTO "tb_urls" ("alias", "url_original") VALUES ('Bemobi', 'www.bemobi.com.br');
