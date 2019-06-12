@@ -4,6 +4,7 @@
   "description": "Um pequeno projeto para testar suas habilidades como programador.",
   "main": "index.js",
   "scripts": {
+    "start": "node src/api",
     "test": "mocha src/tests/*.js",
     "test:watch": "mocha -w src/tests/*.js"
   },
